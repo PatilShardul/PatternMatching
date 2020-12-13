@@ -21,7 +21,7 @@ mobileNumberPattern=^[0-9][1-9]"\s"[0-9]{10}
 passwordLengthGreaterThan8Char=[a-zA-Z0-9]{8}[a-zA-Z0-9]*
 passwordPatternContainUpperCase=[a-zA-Z0-9]*[A-Z]+[a-zA-Z0-9]*
 passwordPatternContainNumber=[a-zA-Z0-9]*[0-9]+[a-zA-Z0-9]*
-
+passwordPatternContainOnlyOneSpecialChar=[a-zA-Z0-9]*[\$|#|\!|\@]+[a-zA-Z0-9]*
 
 if [[ $firstName =~ $firstNamePattern ]]
 then
@@ -56,13 +56,19 @@ then
 	if [[ $password =~ $passwordPatternContainUpperCase ]]
 	then
 		if [[ $password =~ $passwordPatternContainNumber ]]
-		then 
-			echo "$password is valid ****"
+		then
+			if [[ $password =~ $passwordPatternContainOnlyOneSpecialChar ]]
+			then
+				echo "$password is valid ****"
+			else
+				echo "$Password must contain one Special Character"
+			fi
 		else
 			echo "$password does'nt contain a number"
 		fi
 	else
 		echo "$password Invalid password"
 	fi
-	else "Password Less than 8 characters"
+else 
+	echo"Password Less than 8 characters"
 fi
