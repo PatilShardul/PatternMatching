@@ -13,7 +13,7 @@ lastNamePattern=^[A-Z][a-zA-Z]{2}
 
 emailPattern=^[a-z]+([.][a-z]+)?@[a-z]+.[a-z]+([.][a-z]+)?$
 
-mobileNumberPattern=^[0-9][1-9]"\s"[0-9]{10}
+mobileNumberPattern=^[0-9][1-9]" "[0-9]{10}
 
 if [[ $firstName =~ $firstNamePattern ]]
 then
