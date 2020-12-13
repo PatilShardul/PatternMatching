@@ -14,14 +14,14 @@ firstNamePattern=^[A-Z][a-zA-Z]{2}
 
 lastNamePattern=^[A-Z][a-zA-Z]{2}
 
-emailPattern=^[a-z]+([.][a-z]+)?@[a-z]+.[a-z]+([.][a-z]+)?$
+emailPattern=^[a-c]{3}+([.|-|+]*[0|1]+){0,3}@[a-z0-9]+.[a-z]+([.][a-z]+)?$
 
 mobileNumberPattern=^[0-9][1-9]"\s"[0-9]{10}
 
 passwordLengthGreaterThan8Char=[a-zA-Z0-9]{8}[a-zA-Z0-9]*
 passwordPatternContainUpperCase=[a-zA-Z0-9]*[A-Z]+[a-zA-Z0-9]*
 passwordPatternContainNumber=[a-zA-Z0-9]*[0-9]+[a-zA-Z0-9]*
-passwordPatternContainOnlyOneSpecialChar=[a-zA-Z0-9]*[\$|#|\!|\@]+[a-zA-Z0-9]*
+passwordPatternContainOnlyOneSpecialChar='[a-zA-Z0-9]*[\$|#|\!|\@]+[a-zA-Z0-9]*'
 
 if [[ $firstName =~ $firstNamePattern ]]
 then
@@ -70,5 +70,5 @@ then
 		echo "$password Invalid password"
 	fi
 else 
-	echo"Password Less than 8 characters"
+	echo "Password Less than 8 characters"
 fi
