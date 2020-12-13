@@ -18,8 +18,11 @@ emailPattern=^[a-z]+([.][a-z]+)?@[a-z]+.[a-z]+([.][a-z]+)?$
 
 mobileNumberPattern=^[0-9][1-9]"\s"[0-9]{10}
 
-passwordPatternContainUpperCase=[a-zA-Z]*[A-Z]+[a-zA-Z]*
 passwordLengthGreaterThan8Char=[a-zA-Z0-9]{8}[a-zA-Z0-9]*
+passwordPatternContainUpperCase=[a-zA-Z0-9]*[A-Z]+[a-zA-Z0-9]*
+passwordPatternContainNumber=[a-zA-Z0-9]*[0-9]+[a-zA-Z0-9]*
+
+
 if [[ $firstName =~ $firstNamePattern ]]
 then
 	echo "$firstName"
@@ -52,7 +55,12 @@ if [[ $password =~ $passwordLengthGreaterThan8Char ]]
 then
 	if [[ $password =~ $passwordPatternContainUpperCase ]]
 	then
-		echo "$password : ****"
+		if [[ $password =~ $passwordPatternContainNumber ]]
+		then 
+			echo "$password is valid ****"
+		else
+			echo "$password does'nt contain a number"
+		fi
 	else
 		echo "$password Invalid password"
 	fi
