@@ -1,6 +1,6 @@
 #!/usr/bin/bash -x
 
-shopt -s  extglob
+shopt -s extglob
 
 echo "Welcome To User Registeration Check"
 
@@ -18,8 +18,8 @@ emailPattern=^[a-z]+([.][a-z]+)?@[a-z]+.[a-z]+([.][a-z]+)?$
 
 mobileNumberPattern=^[0-9][1-9]"\s"[0-9]{10}
 
-passwordPattern='^([a-z]*[A-Z]+[a-z]*){8}*[a-z]$'
-
+passwordPatternContainUpperCase=[a-zA-Z]*[A-Z]+[a-zA-Z]*
+passwordLengthGreaterThan8Char=[a-zA-Z0-9]{8}[a-zA-Z0-9]*
 if [[ $firstName =~ $firstNamePattern ]]
 then
 	echo "$firstName"
@@ -48,11 +48,13 @@ else
 	echo "Invalid Mobile Number"
 fi
 
-
-if [[ $password =~ $passwordPattern ]]
+if [[ $password =~ $passwordLengthGreaterThan8Char ]]
 then
-	echo "$password : ****"
-else
-	echo "$password Invalid password"
+	if [[ $password =~ $passwordPatternContainUpperCase ]]
+	then
+		echo "$password : ****"
+	else
+		echo "$password Invalid password"
+	fi
+	else "Password Less than 8 characters"
 fi
-
