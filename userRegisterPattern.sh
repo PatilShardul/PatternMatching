@@ -18,10 +18,10 @@ emailPattern=^[a-z]+([.][a-z]+)?@[a-z]+.[a-z]+([.][a-z]+)?$
 
 mobileNumberPattern=^[0-9][1-9]"\s"[0-9]{10}
 
-passwordLengthGreaterThan8Char=[a-zA-Z0-9]{8}[a-zA-Z0-9]*
-passwordPatternContainUpperCase=[a-zA-Z0-9]*[A-Z]+[a-zA-Z0-9]*
-passwordPatternContainNumber=[a-zA-Z0-9]*[0-9]+[a-zA-Z0-9]*
-passwordPatternContainOnlyOneSpecialChar=[a-zA-Z0-9]*[\$|#|\!|\@]+[a-zA-Z0-9]*
+passwordLengthGreaterThan8Char='^[a-zA-Z0-9\$|#|\!|\@]{8}[a-zA-Z0-9]*'
+passwordPatternContainUpperCase='^[a-zA-Z0-9\$|#|\!|\@]*[A-Z]+[a-zA-Z0-9]*'
+passwordPatternContainNumber='^[a-zA-Z0-9\$|#|\!|\@]*[0-9]+[a-zA-Z0-9]*'
+passwordPatternContainOnlyOneSpecialChar="^[a-zA-Z0-9]*[\$|#|\!|\@]{1}[a-zA-Z0-9]*$"
 
 if [[ $firstName =~ $firstNamePattern ]]
 then
