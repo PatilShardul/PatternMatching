@@ -1,4 +1,5 @@
 #!/usr/bin/bash -x
+
 shopt -s  extglob
 
 echo "Welcome To User Registeration Check"
@@ -17,7 +18,7 @@ emailPattern=^[a-z]+([.][a-z]+)?@[a-z]+.[a-z]+([.][a-z]+)?$
 
 mobileNumberPattern=^[0-9][1-9]"\s"[0-9]{10}
 
-passwordPattern=[\$.#@a-zA-Z0-9]{8}[a-zA-Z0-9]*
+passwordPattern='^([a-z]*[A-Z]+[a-z]*){8}*[a-z]$'
 
 if [[ $firstName =~ $firstNamePattern ]]
 then
@@ -52,6 +53,6 @@ if [[ $password =~ $passwordPattern ]]
 then
 	echo "$password : ****"
 else
-	echo "Invalid password"
+	echo "$password Invalid password"
 fi
 
