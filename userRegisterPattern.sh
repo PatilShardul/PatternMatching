@@ -17,7 +17,7 @@ emailPattern=^[a-z]+([.][a-z]+)?@[a-z]+.[a-z]+([.][a-z]+)?$
 
 mobileNumberPattern=^[0-9][1-9]"\s"[0-9]{10}
 
-passwordPattern=[\$.#@a-zA-Z0-9]{8}[a-zA-Z0-9]*
+passwordPattern='^[a-zA-Z0-9\$|#|\!|\@]{8}[a-zA-Z0-9]*'
 
 if [[ $firstName =~ $firstNamePattern ]]
 then
