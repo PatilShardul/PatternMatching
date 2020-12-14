@@ -10,9 +10,9 @@ read -p "Enter User Email : " email
 read -p "Enter Mobile Number In '(country code)xx (number)xxxxxxxxxx' Format : " mobileNumber
 read -p "Enter User Password : " password
 
-firstNamePattern=^[A-Z][a-zA-Z]{2}
+firstNamePattern='^[A-Z][a-zA-Z]{2}$'
 
-lastNamePattern=^[A-Z][a-zA-Z]{2}
+lastNamePattern='^[A-Z][a-zA-Z]{2}$'
 
 emailPattern='^[a-c]{3}([.|-|+]*[0|1]+){0,3}@[a-z0-9]+.[a-z]+([.][a-z]+)?$'
 
